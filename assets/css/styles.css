@@ -734,3 +734,20 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--p
   .js [data-reveal] > * { opacity: 1 !important; animation: none !important; }
   .btn.is-loading::after { animation: none; opacity: 0; }
 }
+
+/* Mobile: hero and footer content centred */
+@media (max-width: 720px) {
+  .hero-stage, .hero-intro { text-align: center; }
+  .ht-script { margin-inline: auto; }
+  .hero-lead { margin-inline: auto; }
+  .cta-row { justify-content: center; }
+
+  .footer-grid { text-align: center; }
+  .footer-brand img { margin-inline: auto; }
+  .footer-brand p { margin-inline: auto; }
+  .footer-nav, .footer-contact { justify-items: center; }
+  .footer-base { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 14px; }
+  .fb-copy { grid-column: auto; grid-row: auto; order: 2; }
+  .fb-credit { order: 1; }
+  .to-top { justify-self: center; order: 0; }
+}
