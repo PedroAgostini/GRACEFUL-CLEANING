@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found | Graceful Cleaning Services</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#2F3B2C">
+  <link rel="icon" href="/assets/logo/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="/assets/logo/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:wght@400;500;600;700&family=Kaushan+Script&family=Sora:wght@700;800&family=Space+Mono&display=swap" rel="stylesheet">
+  <!-- Asset root: relative when this file is opened directly (from disk or as /404.html),
+       absolute when the server returns it for any missing URL, nested ones included. -->
+  <script>
+    window.NF_ROOT = (location.protocol === 'file:' || /\/404\.html$/i.test(location.pathname)) ? '' : '/';
+    document.write('<link rel="stylesheet" href="' + NF_ROOT + 'assets/css/styles.css?v=2026-10-06-photos">');
+  </script>
+  <noscript><link rel="stylesheet" href="/assets/css/styles.css?v=2026-10-06-photos"></noscript>
+  <style>
+    /* 404: the hero's world in one rounded panel — room photo under a forest veil, mixed display type, "404" watermark */
+    body { padding: 0; background: var(--white); }
+    .nf {
+      position: relative; isolation: isolate; overflow: hidden;
+      display: grid; grid-template-rows: auto 1fr;
+      min-height: calc(100dvh - 2 * clamp(8px, 1.6vw, 24px));
+      margin: clamp(8px, 1.6vw, 24px); border-radius: clamp(28px, 4vw, 56px);
+      background: var(--forest-deep); color: #fff;
+    }
+    .nf-bg { position: absolute; inset: 0; z-index: -3; width: 100%; height: 100%; object-fit: cover; object-position: 62% 45%; }
+    .nf::before {
+      content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(27, 35, 26, .92) 0%, rgba(27, 35, 26, .8) 50%, rgba(27, 35, 26, .5) 100%),
+        radial-gradient(40% 50% at 92% 0%, rgba(236, 111, 167, .16), transparent 70%);
+    }
+    .nf-mark {
+      position: absolute; right: -2%; bottom: 0; z-index: -1; margin: 0; translate: 0 16%;
+      font-family: var(--f-display); font-weight: 800; font-size: clamp(9rem, 34vw, 32rem); line-height: .8; letter-spacing: -.02em;
+      color: transparent; -webkit-background-clip: text; background-clip: text;
+      background-image: linear-gradient(180deg, rgba(255, 255, 255, .13) 0%, rgba(255, 255, 255, .05) 45%, rgba(255, 255, 255, 0) 82%);
+      user-select: none; pointer-events: none;
+    }
+    .nf-top { padding: clamp(20px, 3vw, 36px) clamp(20px, 4vw, 64px) 0; }
+    .nf-body { align-self: center; padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 64px) clamp(56px, 8vw, 104px); max-width: 1100px; }
+    .nf-label {
+      display: inline-flex; align-items: center; gap: 10px; margin: 0 0 clamp(22px, 3vw, 34px);
+      padding: 9px 16px 9px 12px; border-radius: 12px;
+      background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .16);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1);
+      font-family: "Space Mono", ui-monospace, monospace; font-size: .9rem; letter-spacing: .08em; text-transform: uppercase; color: #F3EEF0;
+    }
+    .nf-label svg { width: 18px; height: 18px; }
+    .nf h1 { margin: 0; font-size: 1rem; line-height: 1; letter-spacing: 0; color: #fff; text-wrap: initial; }
+    .nf h1 > span { display: block; }
+    .nf-script {
+      position: relative; z-index: 1; width: fit-content; rotate: -4deg; margin: 0 0 -.16em -.02em;
+      font-family: "Kaushan Script", var(--f-display); font-weight: 400; font-size: clamp(2.8rem, 6.4vw, 6.4rem); line-height: .95;
+      color: var(--pink-soft); text-shadow: 0 8px 30px rgba(20, 28, 19, .45);
+    }
+    .nf-big {
+      font-family: "Anton", var(--f-display); font-weight: 400; text-transform: uppercase;
+      font-size: clamp(3.4rem, 8.6vw, 8.6rem); line-height: .94; letter-spacing: .002em; color: #C9D7C3;
+    }
+    .nf-big svg { display: inline-block; width: .45em; height: .45em; margin-left: .12em; vertical-align: .1em; animation: twinkle 4.8s ease-in-out infinite; }
+    .nf-lead { max-width: 46ch; margin: clamp(22px, 3vw, 32px) 0 30px; font-size: clamp(1.08rem, 1.35vw, 1.25rem); line-height: 1.6; color: rgba(255, 255, 255, .88); }
+    @media (min-width: 721px) { .nf-big { white-space: nowrap; } }
+    @media (max-width: 720px) {
+      .nf .cta-row .btn { width: 100%; }
+      .nf::before { background: linear-gradient(180deg, rgba(27, 35, 26, .82) 0%, rgba(27, 35, 26, .74) 50%, rgba(27, 35, 26, .86) 100%); }
+      .nf-big { font-size: 15.5vw; }
+      .nf-script { font-size: 12vw; }
+      .nf-mark { right: -6%; font-size: 52vw; }
+    }
+    @media (prefers-reduced-motion: reduce) { .nf-big svg { animation: none; } }
+  </style>
+</head>
+<body>
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <defs>
+      <radialGradient id="g-sparkle" cx=".38" cy=".32" r=".75"><stop offset="0" stop-color="#FFD3E6"/><stop offset=".45" stop-color="#F07DB0"/><stop offset="1" stop-color="#D2508B"/></radialGradient>
+    </defs>
+    <symbol id="sparkle" viewBox="-50 -50 100 100"><path d="M0-48C4-14 14-4 48 0 14 4 4 14 0 48-4 14-14 4-48 0-14-4-4-14 0-48Z" fill="url(#g-sparkle)"/><path d="M0-40C2-14 8-8 18-4 6-6 2-14 0-40Z" fill="#FFFFFF" opacity=".7"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 3.5h2.6l1.4 4.1-2 1.4a12.5 12.5 0 0 0 6.4 6.4l1.4-2 4.1 1.4v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z"/></symbol>
+  </svg>
+
+  <main class="nf">
+    <img class="nf-bg" src="/assets/img/hero-living-room.webp" alt="" width="1536" height="1024" data-asset="assets/img/hero-living-room.webp">
+    <p class="nf-mark" aria-hidden="true">404</p>
+
+    <div class="nf-top">
+      <a href="/" class="logo" aria-label="Graceful Cleaning Services, home" data-home>
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span class="logo-word" aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div class="nf-body">
+      <p class="nf-label"><svg aria-hidden="true"><use href="#sparkle"/></svg>Error 404</p>
+      <h1>
+        <span class="nf-script">This corner is</span>
+        <span class="nf-big">Already spotless<svg aria-hidden="true"><use href="#sparkle"/></svg></span>
+      </h1>
+      <p class="nf-lead">We couldn’t find the page you were looking for. It may have moved, or the link may be mistyped.</p>
+      <div class="cta-row">
+        <a href="/" class="btn btn-primary btn-lg" data-home>Back to the home page <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a href="tel:+15083959441" class="btn btn-glass btn-lg" aria-label="Call us at (508) 395-9441"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Call us</a>
+      </div>
+    </div>
+  </main>
+  <script>
+    // Same rule as the stylesheet: point the photo and home links at the right place
+    document.querySelectorAll('[data-asset]').forEach(function (el) { el.src = NF_ROOT + el.getAttribute('data-asset'); });
+    if (!NF_ROOT) document.querySelectorAll('[data-home]').forEach(function (a) { a.href = 'index.html'; });
+  </script>
+</body>
+</html>

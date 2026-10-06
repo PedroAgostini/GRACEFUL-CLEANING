@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- GO-LIVE: replace the staging domain with the final domain -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://graceful.escolats.com.br/</loc>
+    <lastmod>2026-10-06</lastmod>
+  </url>
+</urlset>

@@ -1,0 +1,52 @@
+# Graceful Cleaning Services — Hostinger (LiteSpeed, Apache-compatible)
+
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+# --- Staging (graceful.escolats.com.br) must never be indexed ---------------
+# Only applies on the staging host, so nothing needs to change at go-live.
+SetEnvIfNoCase Host ^graceful\.escolats\.com\.br$ GRACEFUL_STAGING
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow" env=GRACEFUL_STAGING
+</IfModule>
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^graceful\.escolats\.com\.br$ [NC]
+  RewriteRule ^robots\.txt$ robots-staging.txt [L]
+</IfModule>
+
+# --- Keep project notes private --------------------------------------------
+# Briefing, product notes, copy deck, checklists and dot-folders return 404.
+# .well-known stays open for SSL certificate checks.
+RedirectMatch 404 (?i)\.md$
+RedirectMatch 404 /\.(?!well-known)
+
+# --- Security headers ------------------------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# --- Compression -----------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json application/xml image/svg+xml
+</IfModule>
+
+# --- Caching ---------------------------------------------------------------
+# CSS/JS carry a ?v= version in index.html, so they can be cached for a year.
+# Photos stay short (1 week) because placeholders will be swapped keeping the
+# same file names.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 week"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 week"
+  ExpiresByType image/png "access plus 1 week"
+  ExpiresByType image/webp "access plus 1 week"
+  ExpiresByType application/xml "access plus 1 day"
+  ExpiresByType text/plain "access plus 1 day"
+</IfModule>

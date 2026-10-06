@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# GO-LIVE: replace the staging domain with the final domain
+Sitemap: https://graceful.escolats.com.br/sitemap.xml

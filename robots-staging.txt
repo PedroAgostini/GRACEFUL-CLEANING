@@ -1,0 +1,3 @@
+# Served as /robots.txt on the staging host only (see .htaccess).
+User-agent: *
+Disallow: /

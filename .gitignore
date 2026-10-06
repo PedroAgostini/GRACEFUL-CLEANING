@@ -1,0 +1,11 @@
+# Project notes stay on the local machine (this repository is public):
+# briefing, product notes, copy deck, go-live checklist, design notes and image prompts.
+*.md
+!README.md
+.impeccable/
+
+# OS and editor files
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
