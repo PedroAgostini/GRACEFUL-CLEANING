@@ -69,6 +69,7 @@ O rosa `#EC6FA7` é decorativo (brilhos e detalhes). Em botões e links usamos `
 ├── privacy-policy.html   # política de privacidade
 ├── terms-of-use.html     # termos de uso
 ├── clear-cache.html      # força o navegador a buscar a versão nova do site
+├── redirect.html         # cartão de visitas em /redirect (QR code, bio das redes)
 ├── assets/
 │   ├── css/styles.css    # todo o visual (tokens em :root)
 │   ├── js/main.js        # interações, comparador e formulário
@@ -112,6 +113,8 @@ Domínio: **https://gracefulcleaningservicesma.com** (o `www` redireciona para o
    - um pedido de teste no formulário chega no e-mail e na plataforma de leads.
 
 Se alguém continuar vendo a versão antiga depois de uma atualização, mande o link `/clear-cache.html`.
+
+O cartão de visitas fica em `redirect.html` (texto, ligação, orçamento, site e e-mail), para QR code e bio das redes. Não entra no Google (`noindex`). No servidor, uma regra deixa a página disponível em `/redirect`.
 
 O ambiente de testes (`graceful.escolats.com.br`) continua recebendo `X-Robots-Tag: noindex` e o `robots.txt` bloqueado. No domínio final, nada disso se aplica.
 

@@ -16,3 +16,6 @@ desktop.ini
 # Server config and deploy tooling live in the private repository
 .htaccess
 scripts/
+
+# Claude Code local settings
+.claude/settings.local.json
