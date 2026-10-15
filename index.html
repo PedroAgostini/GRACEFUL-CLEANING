@@ -6,18 +6,20 @@
   <title>Graceful Cleaning Services | House Cleaning in Framingham, MA</title>
   <meta name="description" content="Reliable house cleaning in Framingham, MA. Regular, deep, move-in/out, post-construction and commercial cleaning. 8+ years of experience. Text (508) 395-9441.">
   <meta name="theme-color" content="#3F4F3C">
-  <!-- GO-LIVE: swap https://graceful.escolats.com.br for the final domain in canonical, og:url, og:image and twitter:image (see GO-LIVE.md) -->
-  <link rel="canonical" href="https://graceful.escolats.com.br/">
+  <!-- Production domain: gracefulcleaningservicesma.com (canonical, og:url, og:image, twitter:image, sitemap, robots, llms) -->
+  <link rel="canonical" href="https://gracefulcleaningservicesma.com/">
   <link rel="icon" href="assets/logo/favicon-48.png" type="image/png" sizes="48x48">
   <link rel="icon" href="assets/logo/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="Graceful Cleaning Services">
-  <meta property="og:url" content="https://graceful.escolats.com.br/">
+  <meta property="og:url" content="https://gracefulcleaningservicesma.com/">
   <meta property="og:title" content="Graceful Cleaning Services | House Cleaning in Framingham, MA">
   <meta property="og:description" content="Exceptional cleaning services for your peace of mind. Reliable house cleaning in Framingham, MA.">
-  <meta property="og:image" content="https://graceful.escolats.com.br/assets/img/og-image.webp">
+  <meta property="og:image" content="https://gracefulcleaningservicesma.com/assets/img/og-image.webp">
   <meta property="og:image:type" content="image/webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -25,17 +27,20 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Graceful Cleaning Services | House Cleaning in Framingham, MA">
   <meta name="twitter:description" content="Exceptional cleaning services for your peace of mind. Reliable house cleaning in Framingham, MA.">
-  <meta name="twitter:image" content="https://graceful.escolats.com.br/assets/img/og-image.webp">
+  <meta name="twitter:image" content="https://gracefulcleaningservicesma.com/assets/img/og-image.webp">
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Kaushan+Script&family=Sora:wght@600;700;800&family=Space+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=2026-10-06v">
+  <link rel="stylesheet" href="assets/css/styles.css?v=2026-10-15-legal">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "HouseCleaningService",
     "name": "Graceful Cleaning Services",
+    "url": "https://gracefulcleaningservicesma.com/",
+    "image": "https://gracefulcleaningservicesma.com/assets/img/og-image.webp",
+    "logo": "https://gracefulcleaningservicesma.com/assets/logo/icon-512.png",
     "telephone": "+1-508-395-9441",
     "email": "gracefulcleaningservicesma@gmail.com",
     "address": {"@type": "PostalAddress", "streetAddress": "2 Universal St", "addressLocality": "Framingham", "addressRegion": "MA", "postalCode": "01702", "addressCountry": "US"},
@@ -447,12 +452,14 @@
       <div class="form-card">
         <h2>Request a Quote</h2>
 
-        <!-- Web3Forms: replace YOUR_WEB3FORMS_ACCESS_KEY (free key at web3forms.com, delivered to gracefulcleaningservicesma@gmail.com) -->
-        <form class="quote-form" action="https://api.web3forms.com/submit" method="POST" novalidate data-form>
+        <!-- Web3Forms: set your access key below. Optional lead webhook: add data-lead-webhook="https://..." to the form. Spam guard: assets/js/antispam.js -->
+        <form class="quote-form" id="form01" action="https://api.web3forms.com/submit" method="POST" novalidate data-form data-form-id="form01">
           <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
           <input type="hidden" name="subject" value="New quote request — Graceful Cleaning website">
           <input type="hidden" name="from_name" value="Graceful Cleaning website">
-          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <!-- Spam traps: hidden from people, filled by bots -->
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" data-hp>
+          <label class="hp" aria-hidden="true">Company website <input type="text" name="company_website" tabindex="-1" autocomplete="off" data-hp></label>
 
           <!-- Progress (shown once JS turns the form into steps) -->
           <div class="form-progress" data-progress hidden>
@@ -529,7 +536,7 @@
             </button>
           </div>
           <!-- CONFIRM with client: privacy reassurance under the submit button -->
-          <p class="form-privacy">We use your details only to reply to this request.</p>
+          <p class="form-privacy">We use your details only to reply to this request. See our <a href="privacy-policy.html">Privacy Policy</a>.</p>
           <p class="form-status" role="status" aria-live="polite" data-status></p>
           <p class="sr-only" aria-live="polite" data-announce></p>
         </form>
@@ -579,7 +586,13 @@
   </div>
   <div class="wrap footer-base">
     <a class="fb-credit" href="https://eusouts.com.br/" target="_blank" rel="noopener">Developed by <strong>Eu Sou TS</strong></a>
-    <span class="fb-copy">© <span data-year>2026</span> Graceful Cleaning Services. All rights reserved.</span>
+    <div class="fb-mid">
+      <span class="fb-copy">© <span data-year>2026</span> Graceful Cleaning Services. All rights reserved.</span>
+      <nav class="fb-legal" aria-label="Legal">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-use.html">Terms of Use</a>
+      </nav>
+    </div>
     <a href="#top" class="to-top" aria-label="Back to top"><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   </div>
   <p class="footer-mark" aria-hidden="true">Graceful</p>
@@ -592,6 +605,7 @@
   <a href="#contact" class="ab-primary">Book now</a>
 </div>
 
-<script src="assets/js/main.js?v=2026-10-06v" defer></script>
+<script src="assets/js/antispam.js?v=2026-10-15" defer></script>
+<script src="assets/js/main.js?v=2026-10-15" defer></script>
 </body>
 </html>

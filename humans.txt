@@ -1,0 +1,20 @@
+/* TEAM */
+Client: Graceful Cleaning Services
+Owner: Jessica Cunha
+Location: Framingham, Massachusetts, USA
+Contact: gracefulcleaningservicesma@gmail.com
+
+Design & development: Eu Sou TS
+Site: https://eusouts.com.br/
+
+/* SITE */
+Project: Graceful Cleaning Services
+URL: https://gracefulcleaningservicesma.com/
+Environment: Production
+Language: English (US)
+Last update: 2026-10-15
+Standards: HTML5, CSS3, JavaScript (no frameworks, no build step)
+Typography: Sora, Figtree, Anton, Kaushan Script, Space Mono via Google Fonts
+Icons: Phosphor Icons (MIT)
+Photography: AI-generated illustrations inspired by MetroWest Massachusetts homes
+Brand assets: Graceful Cleaning Services

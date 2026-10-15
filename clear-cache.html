@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#3F4F3C">
+  <title>Refresh the website | Graceful Cleaning Services</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/assets/logo/apple-touch-icon.png">
+  <!-- The server sends Clear-Site-Data: "cache" with this page (.htaccess): the browser drops this site's cached files.
+       Cookies and saved data are kept. Hosting/CDN caches are cleared in the Hostinger panel. -->
+  <style>
+    :root { --forest: #3F4F3C; --text-2: #5C6659; --blush: #FBEFF5; --pink-action: #C83C7D; --pink-hover: #AE2F69; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: 24px 16px; background: var(--blush); color: var(--forest); font: 400 1.0625rem/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    main { width: 100%; max-width: 560px; padding: clamp(28px, 6vw, 48px); border-radius: 28px; background: #fff; box-shadow: 0 18px 40px -22px rgba(63, 79, 60, .35); text-align: center; }
+    img { display: block; width: 168px; height: auto; margin: 0 auto 28px; }
+    .eyebrow { margin: 0 0 8px; font: 700 .8rem/1.2 ui-monospace, monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--pink-action); }
+    h1 { margin: 0 0 16px; font-size: clamp(1.7rem, 6vw, 2.2rem); line-height: 1.15; letter-spacing: -.02em; }
+    p { margin: 0 0 14px; color: var(--text-2); }
+    .status { min-height: 1.6em; font-weight: 600; color: var(--forest); }
+    .actions { display: grid; gap: 12px; margin: 26px 0 18px; }
+    a.btn { display: flex; align-items: center; justify-content: center; min-height: 52px; padding: 12px 24px; border-radius: 999px; background: var(--pink-action); color: #fff; font-weight: 700; text-decoration: none; }
+    a.btn:hover { background: var(--pink-hover); }
+    a.btn.ghost { background: transparent; color: var(--forest); border: 2px solid var(--forest); }
+    a.btn.ghost:hover { background: var(--forest); color: #fff; }
+    a:focus-visible { outline: 3px solid var(--pink-action); outline-offset: 3px; }
+    .note { font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <img src="/assets/logo/LOGO-PRINCIPAL.webp" alt="Graceful Cleaning Services" width="1089" height="807">
+    <p class="eyebrow">Website refresh</p>
+    <h1>Load the latest version</h1>
+    <p>This page asks your browser to forget the saved copies of this website, so the next page you open is the newest one. Your cookies and saved data stay as they are.</p>
+    <p class="status" role="status" aria-live="polite" data-status>Refreshing…</p>
+    <div class="actions">
+      <a class="btn" href="/" data-refresh-link>Open the home page</a>
+      <a class="btn ghost" href="/privacy-policy.html" data-refresh-link>Privacy Policy</a>
+    </div>
+    <p class="note">Still seeing an older version? Press Ctrl + Shift + R (Windows) or Command + Shift + R (Mac). On a phone, close the tab and open the site again.</p>
+  </main>
+  <script>
+    // Belt and braces next to the Clear-Site-Data header: empty Cache Storage, drop service workers,
+    // and give every link a fresh address so no cached copy can answer it.
+    (async () => {
+      const status = document.querySelector('[data-status]');
+      try {
+        if ('caches' in window) await Promise.all((await caches.keys()).map((key) => caches.delete(key)));
+        if (navigator.serviceWorker) await Promise.all((await navigator.serviceWorker.getRegistrations()).map((r) => r.unregister()));
+      } catch (e) { /* not available in this browser: the header still does the work */ }
+      document.querySelectorAll('[data-refresh-link]').forEach((link) => {
+        const url = new URL(link.getAttribute('href'), location.href);
+        url.searchParams.set('refresh', String(Date.now()));
+        link.href = url.href;
+      });
+      status.textContent = 'Done. Open the website below.';
+    })();
+  </script>
+</body>
+</html>

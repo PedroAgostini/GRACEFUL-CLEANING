@@ -13,7 +13,7 @@ Feito para quem chega pelo celular, vindo do Google e do Meta Ads, e quer pedir 
 ![Build](https://img.shields.io/badge/build-nenhum-C83C7D?style=flat-square)
 ![Hostinger](https://img.shields.io/badge/deploy-Hostinger-C83C7D?style=flat-square&logo=hostinger&logoColor=white)
 
-[Ambiente de testes](https://graceful.escolats.com.br) · [Estrutura](#-estrutura) · [Rodar localmente](#-rodar-localmente) · [Publicar](#-publicar-na-hostinger)
+[Site](https://gracefulcleaningservicesma.com) · [Estrutura](#-estrutura) · [Rodar localmente](#-rodar-localmente) · [Publicar](#-publicar-na-hostinger)
 
 </div>
 
@@ -66,12 +66,21 @@ O rosa `#EC6FA7` é decorativo (brilhos e detalhes). Em botões e links usamos `
 .
 ├── index.html            # o site
 ├── 404.html              # página de erro no mesmo estilo
+├── privacy-policy.html   # política de privacidade
+├── terms-of-use.html     # termos de uso
+├── clear-cache.html      # força o navegador a buscar a versão nova do site
 ├── assets/
 │   ├── css/styles.css    # todo o visual (tokens em :root)
 │   ├── js/main.js        # interações, comparador e formulário
+│   ├── js/antispam.js    # proteção do formulário contra spam
 │   ├── img/              # fotos em WebP + og-image
-│   └── logo/             # logos e ícones (favicon, apple-touch)
-├── .htaccess             # 404, cache, compressão, noindex do staging
+│   └── logo/             # logos e ícones (192, 512, maskable, apple-touch)
+├── .well-known/
+│   └── security.txt      # contato para avisos de segurança (renovar até 15/10/2027)
+├── favicon.ico           # ícone da aba (16, 32 e 48 px)
+├── site.webmanifest      # nome, cores e ícones para Android e "adicionar à tela"
+├── humans.txt            # créditos
+├── llms.txt              # resumo da empresa para assistentes de IA
 ├── robots.txt            # produção
 ├── robots-staging.txt    # servido como robots.txt só no staging
 └── sitemap.xml
@@ -91,23 +100,31 @@ Abra `http://localhost:3000` (ou `:8000`). O `index.html` também abre direto do
 
 ## ✦ Publicar na Hostinger
 
-1. Envie todo o conteúdo da pasta para o `public_html` do domínio, incluindo o `.htaccess` (no Windows ele fica oculto).
-2. No hPanel, ative **Force HTTPS**.
-3. Confira:
-   - `/qualquer-coisa` mostra a 404 da Graceful;
-   - no staging, `/robots.txt` mostra `Disallow: /`.
+Domínio: **https://gracefulcleaningservicesma.com** (o `www` redireciona para o endereço sem `www`).
 
-O ambiente de testes (`graceful.escolats.com.br`) recebe automaticamente `X-Robots-Tag: noindex` e o `robots.txt` bloqueado. No domínio final, nada disso se aplica, então não é preciso mexer no `.htaccess` ao publicar.
+1. A configuração do servidor (`.htaccess`) e o script que monta o pacote de upload ficam no repositório privado de produção.
+2. Envie os arquivos públicos para o `public_html` do domínio. A pasta `.well-known` fica oculta no Windows: confira se subiu.
+3. No hPanel, ative **Force HTTPS**.
+4. Confira:
+   - `/qualquer-coisa` mostra a 404 da Graceful;
+   - `www.gracefulcleaningservicesma.com` vai para o endereço sem `www`;
+   - `/README.md` devolve 404;
+   - um pedido de teste no formulário chega no e-mail e na plataforma de leads.
+
+Se alguém continuar vendo a versão antiga depois de uma atualização, mande o link `/clear-cache.html`.
+
+O ambiente de testes (`graceful.escolats.com.br`) continua recebendo `X-Robots-Tag: noindex` e o `robots.txt` bloqueado. No domínio final, nada disso se aplica.
 
 ## ✦ Configuração
 
 | O quê | Onde |
 |---|---|
-| **Envio do formulário** | Crie uma chave gratuita no [Web3Forms](https://web3forms.com) e troque `YOUR_WEB3FORMS_ACCESS_KEY` no `index.html`. Sem a chave, o formulário pede para o visitante mandar mensagem. |
-| **Domínio final** | Troque `https://graceful.escolats.com.br` no topo do `index.html` (`canonical`, `og:url`, `og:image`, `twitter:image`), no `robots.txt` e no `sitemap.xml`. |
+| **Envio do formulário** | O formulário `form01` envia para o [Web3Forms](https://web3forms.com): troque `YOUR_WEB3FORMS_ACCESS_KEY` no `index.html`. Para mandar uma cópia de cada lead a um webhook, adicione `data-lead-webhook="https://..."` no `<form>`. A cópia nunca bloqueia o envio. Sem a chave, o formulário pede para o visitante mandar mensagem. |
+| **Antispam** | `assets/js/antispam.js`: dois campos-armadilha invisíveis (`botcheck`, `company_website`), no mínimo 4 s na página com um clique, toque ou tecla de verdade, nenhum link nas respostas e até 4 envios por hora por navegador. Robô recebe o "obrigado" e nada é enviado. Ative também o filtro de spam no painel do Web3Forms. |
+| **Domínio** | `https://gracefulcleaningservicesma.com` aparece no topo do `index.html` (`canonical`, `og:url`, `og:image`, `twitter:image`, `ld+json`), no `canonical` das páginas legais, no `robots.txt`, no `sitemap.xml`, no `llms.txt`, no `humans.txt` e no `.well-known/security.txt`. |
 | **Antes e depois** | Pares de fotos por cômodo em `assets/js/main.js`, no objeto `ROOMS`. |
 | **Fotos** | Substitua os arquivos em `assets/img/` mantendo os nomes, e atualize o `alt` no HTML. |
-| **Cache** | Ao alterar CSS ou JS, mude o `?v=` nos links de `index.html` e `404.html`. O servidor guarda esses arquivos em cache por um ano. |
+| **Cache** | Ao alterar CSS ou JS, mude o `?v=` nos links de `index.html`, `404.html`, `privacy-policy.html` e `terms-of-use.html`. O servidor guarda esses arquivos em cache por um ano. |
 
 ## ✦ Créditos
 

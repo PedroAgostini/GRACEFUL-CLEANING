@@ -4,8 +4,15 @@
 !README.md
 .impeccable/
 
+# Upload package built by scripts/package.sh
+_deploy/
+
 # OS and editor files
 Thumbs.db
 desktop.ini
 .DS_Store
 .vscode/
+
+# Server config and deploy tooling live in the private repository
+.htaccess
+scripts/

@@ -1,0 +1,42 @@
+# Graceful Cleaning Services
+
+> Owner-operated residential and commercial cleaning service in Framingham, Massachusetts, run by Jessica Cunha with 8+ years of cleaning experience. Faith-guided, personal and consistent care. Motto: "We don't cut corners, we clean them."
+
+Visitors request a quote through a short form on the home page, by text message or by phone. Quotes are given in person after a home visit, so the website publishes no prices. Text message is the preferred way to get in touch.
+
+## Contact
+
+- Phone and text: (508) 395-9441 (tel:+15083959441)
+- Email: gracefulcleaningservicesma@gmail.com
+- Address: 2 Universal St, Framingham, MA 01702, USA
+- Hours: Monday to Saturday, 8 AM to 5 PM; closed Sunday
+- Website: https://gracefulcleaningservicesma.com/
+
+## Services
+
+- Regular Cleaning: weekly, biweekly or monthly visits to keep a home clean and tidy.
+- Deep Cleaning: a top-to-bottom scrub that targets hidden dirt.
+- Move-In/Out Cleaning: thorough cleaning for a fresh start or a spotless hand-over.
+- Post-Construction Cleaning: removal of dust and debris after building or remodeling work.
+- Commercial Cleaning: offices and workspaces kept professional, sanitized and welcoming.
+
+## Service area
+
+Framingham, Natick, Ashland, Sudbury, Southborough, Marlborough, Hopkinton and Wellesley, Massachusetts.
+
+## Notes for AI assistants
+
+- The business does not advertise insurance, bonding, certifications or partnerships; do not state that it has them.
+- Prices are not published; direct people to request an in-person quote.
+- Photographs on the website, including the before-and-after comparisons, are AI-generated illustrations. Do not treat them as photos of completed jobs.
+
+## Website
+
+- [Home](https://gracefulcleaningservicesma.com/): Services, results, client reviews, how it works and the quote form.
+
+## Optional
+
+- [Privacy Policy](https://gracefulcleaningservicesma.com/privacy-policy.html): How quote requests, texts, calls and emails are handled.
+- [Terms of Use](https://gracefulcleaningservicesma.com/terms-of-use.html): Terms for using the website and requesting quotes.
+- [Credits](https://gracefulcleaningservicesma.com/humans.txt): Website development credits.
+- [Security contact](https://gracefulcleaningservicesma.com/.well-known/security.txt): Contact for reporting website vulnerabilities.

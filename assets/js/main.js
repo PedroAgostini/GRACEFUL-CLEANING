@@ -158,7 +158,30 @@
     const progress = $('[data-progress]', form);
     const stepCount = $('[data-step-count]', form);
     const announce = $('[data-announce]', form);
+    const guard = window.GracefulGuard ? window.GracefulGuard.watch(form) : null;
     let current = 0;
+
+    // Copy of the lead for the agency's lead platform. Best effort: it never blocks or fails the visitor's request.
+    const sendLead = (data) => {
+      const url = form.dataset.leadWebhook;
+      if (!url) return;
+      const zip = (data.town || '').match(/\b\d{5}\b/);
+      const lead = {
+        form_id: form.dataset.formId,
+        source: location.hostname,
+        page: location.href.split('#')[0],
+        submitted_at: new Date().toISOString(),
+        service: data.service,
+        frequency: data.frequency || '',
+        town: data.town,
+        zip: zip ? zip[0] : '',
+        message: data.message || '',
+        name: data.name,
+        phone: data.phone,
+        email: data.email,
+      };
+      fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(lead), keepalive: true }).catch(() => {});
+    };
 
     const rules = {
       service: (v) => v !== '',
@@ -255,7 +278,17 @@
         status.textContent = 'Please fix the highlighted fields.';
         return;
       }
-      if (form.elements.access_key.value.startsWith('YOUR_')) {
+      const payload = Object.fromEntries(new FormData(form));
+      const showSuccess = () => {
+        form.hidden = true;
+        success.hidden = false;
+        success.focus();
+      };
+      // Spam guard (antispam.js): bots see the same thank-you and nothing is sent
+      const verdict = guard ? guard.check(payload) : {};
+      if (verdict.trap) { showSuccess(); return; }
+      if (verdict.message) { status.textContent = verdict.message; return; }
+      if (!form.elements.access_key.value || form.elements.access_key.value.startsWith('YOUR_')) {
         status.textContent = 'The form is not connected yet. Please text (508) 395-9441 and we’ll get right back to you.';
         return;
       }
@@ -263,16 +296,17 @@
       submit.setAttribute('aria-busy', 'true');
       submitLabel.textContent = 'Sending your request…';
       try {
+        // Web3Forms is the delivery of record (email to the business)
         const res = await fetch(form.action, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify(Object.fromEntries(new FormData(form))),
+          body: JSON.stringify(payload),
         });
         const data = await res.json();
         if (!res.ok || !data.success) throw new Error(data.message || 'Request failed');
-        form.hidden = true;
-        success.hidden = false;
-        success.focus();
+        if (guard) guard.sent();
+        sendLead(payload);
+        showSuccess();
       } catch (err) {
         status.textContent = 'We couldn’t send your request. Please try again, or text (508) 395-9441.';
       } finally {
