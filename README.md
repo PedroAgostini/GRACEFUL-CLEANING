@@ -31,7 +31,7 @@ Não tem framework, dependência nem etapa de build. São três arquivos de cód
 |---|---|
 | **Hero em tela cheia** | Foto sob véu verde, tipografia mista (script + condensada) e uma faixa inclinada em loop com as promessas da marca. Sempre ocupa 100% da altura, do notebook ao monitor. |
 | **Serviços em bento** | Cinco cards com foto, com o serviço principal em destaque e ícones Phosphor em duotone. |
-| **Antes e depois** | Comparador arrastável por cômodo (cozinha, banheiro, sala), que funciona com mouse, toque e teclado. |
+| **Antes e depois** | Quarto e fogão lado a lado, estáticos, na mesma moldura da sala; a sala tem comparador arrastável que funciona com mouse, toque e teclado. |
 | **Orçamento em 3 passos** | Validação por etapa, máscara de telefone americano `(508) 395-9441`, foco e anúncios para leitores de tela a cada passo. |
 | **Mobile primeiro** | Barra fixa *Text · Call · Book Now*, áreas de toque de 44px e textos a partir de 14px. |
 | **Acessível** | Skip link, foco visível, contraste revisado e respeito a `prefers-reduced-motion`. |

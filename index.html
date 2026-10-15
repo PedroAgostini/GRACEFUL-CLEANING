@@ -32,7 +32,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Kaushan+Script&family=Sora:wght@600;700;800&family=Space+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=2026-10-15-legal">
+  <link rel="stylesheet" href="assets/css/styles.css?v=2026-10-15-split">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -322,23 +322,23 @@
       <div class="results-head">
         <h2>A Fresh Start for Every Room</h2>
         <div class="tabs" role="tablist" aria-label="Rooms">
-          <button role="tab" aria-selected="true" data-room="kitchen">Kitchen</button>
-          <button role="tab" aria-selected="false" data-room="bathroom" tabindex="-1">Bathroom</button>
+          <button role="tab" aria-selected="true" data-room="bedroom">Bedroom</button>
+          <button role="tab" aria-selected="false" data-room="stovetop" tabindex="-1">Stovetop</button>
           <button role="tab" aria-selected="false" data-room="living" tabindex="-1">Living room</button>
         </div>
       </div>
 
-      <div class="compare" data-compare>
-        <img class="compare-after" src="assets/img/result-kitchen-after.webp" alt="Illustrative kitchen after cleaning, with clear granite counters and a clean stovetop" width="1536" height="1024" loading="lazy" data-after>
+      <div class="compare is-split" data-compare data-room="bedroom">
+        <img class="compare-after" src="assets/img/result-bedroom-after.webp" alt="Bedroom after organizing, with neatly made bunk beds and a clear floor" width="1086" height="1448" loading="lazy" data-after>
         <div class="compare-before" aria-hidden="true">
-          <img src="assets/img/result-kitchen-before.webp" alt="" width="1536" height="1024" loading="lazy" data-before>
+          <img src="assets/img/result-bedroom-before.webp" alt="" width="1200" height="1600" loading="lazy" data-before>
         </div>
         <span class="tag tag-before">Before</span>
         <span class="tag tag-after">After</span>
         <div class="mullion" aria-hidden="true">
           <span class="grip"><svg viewBox="0 0 100 100"><use href="#i-star"/></svg></span>
         </div>
-        <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after cleaning" data-range>
+        <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after cleaning" data-range hidden>
       </div>
       <div class="section-foot">
         <a href="#contact" class="btn btn-primary">Request your cleaning quote <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -606,6 +606,6 @@
 </div>
 
 <script src="assets/js/antispam.js?v=2026-10-15" defer></script>
-<script src="assets/js/main.js?v=2026-10-15" defer></script>
+<script src="assets/js/main.js?v=2026-10-15-split" defer></script>
 </body>
 </html>

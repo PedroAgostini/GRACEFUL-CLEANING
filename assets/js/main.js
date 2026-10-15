@@ -73,11 +73,13 @@
   }
 
   // Before / after: the window mullion wipes the room clean
-  // AI-generated illustrative pairs (no on-page disclosure, by client decision). Swap for real client pairs when available.
+  // Bedroom: supplied before photo and generated after. Stovetop: AI-enhanced supplied photos.
+  // Living room retains the original illustrative pair.
+  // split: vertical photos sit side by side, static, in the same frame as the living room.
   const ROOMS = {
-    kitchen:  { after: 'assets/img/result-kitchen-after.webp', before: 'assets/img/result-kitchen-before.webp', alt: 'Illustrative kitchen after cleaning, with clear granite counters and a clean stovetop' },
-    bathroom: { after: 'assets/img/result-bathroom-after.webp', before: 'assets/img/result-bathroom-before.webp', alt: 'Illustrative bathroom after cleaning, with clear shower glass and a clean vanity' },
-    living:   { after: 'assets/img/result-living-after.webp', before: 'assets/img/result-living-before.webp', alt: 'Illustrative living room after cleaning, with a tidy coffee table and vacuumed rug' },
+    bedroom:  { split: true, after: 'assets/img/result-bedroom-after.webp', before: 'assets/img/result-bedroom-before.webp', afterSize: [1086, 1448], beforeSize: [1200, 1600], alt: 'Bedroom after organizing, with neatly made bunk beds and a clear floor' },
+    stovetop: { split: true, after: 'assets/img/result-stovetop-after.webp', before: 'assets/img/result-stovetop-before.webp', afterSize: [1440, 1080], beforeSize: [1086, 1448], alt: 'Clean six-burner stovetop with cast iron grates and a brushed stainless steel surround' },
+    living:   { after: 'assets/img/result-living-after.webp', before: 'assets/img/result-living-before.webp', afterSize: [1536, 1024], beforeSize: [1536, 1024], alt: 'Illustrative living room after cleaning, with a tidy coffee table and vacuumed rug' },
   };
   const compare = $('[data-compare]');
   if (compare) {
@@ -118,6 +120,11 @@
       const room = ROOMS[tab.dataset.room];
       compare.classList.add('is-swapping');
       setTimeout(() => {
+        compare.dataset.room = tab.dataset.room;
+        compare.classList.toggle('is-split', !!room.split);
+        range.hidden = !!room.split;
+        [afterImg.width, afterImg.height] = room.afterSize;
+        [beforeImg.width, beforeImg.height] = room.beforeSize;
         afterImg.src = room.after;
         afterImg.alt = room.alt;
         beforeImg.src = room.before;
